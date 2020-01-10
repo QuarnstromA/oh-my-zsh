@@ -5,8 +5,10 @@ export ANT_HOME=/Users/anthony.quarnstrom/bin/ant
 export PATH=$PATH:$ANT_HOME/bin
 alias python=/usr/local/bin/python3
 alias pip=pip3
+alias sshh=ssh-connect
 
 env=~/.ssh/agent.env
+#(ansiweather&)
 
 # Note: Don't bother checking SSH_AGENT_PID. It's not used
 #       by SSH itself, and it might even be incorrect

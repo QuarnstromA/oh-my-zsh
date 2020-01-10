@@ -104,6 +104,10 @@ plugins=(
   wd
   cp
   alias-tips
+  brew
+  colorize
+  quoter
+  ansiweather
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -148,4 +152,3 @@ compinit
 bashcompinit
 
 source ~/.bash_completion.d/compleat_setup
-
