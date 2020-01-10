@@ -1,0 +1,15 @@
+[submodule "custom/alias-tips"]
+	path = custom/alias-tips
+	url = https://github.com/djui/alias-tips
+[submodule "custom/plugins/alias-tips"]
+	path = custom/plugins/alias-tips
+	url = https://github.com/djui/alias-tips
+[submodule "custom/plugins/brew-zsh-plugin"]
+	path = custom/plugins/brew-zsh-plugin
+	url = git@github.com:wolffaxn/brew-zsh-plugin.git
+[submodule "custom/plugins/zsh-url-highlighter"]
+	path = custom/plugins/zsh-url-highlighter
+	url = git@github.com:ascii-soup/zsh-url-highlighter.git
+[submodule "custom/plugins/ssh-connect"]
+	path = custom/plugins/ssh-connect
+	url = https://github.com/gko/ssh-connect
