@@ -1,4 +1,4 @@
-
+source ~/.workrc
 export PATH=$PATH:~/.local/bin/:~/bin/
 export AWS_PROFILE=default
 export ANT_HOME=/Users/anthony.quarnstrom/bin/ant
