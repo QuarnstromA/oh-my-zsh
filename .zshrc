@@ -1,5 +1,5 @@
 POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(aws context dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(aws aws_assume_role context dir vcs)
 ZSH_DISABLE_COMPFIX=true
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa #add more if needed
