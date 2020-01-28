@@ -33,7 +33,7 @@ set -e
 
 # Default settings
 ZSH=${ZSH:-~/.oh-my-zsh}
-REPO=${REPO:-ohmyzsh/ohmyzsh}
+REPO=${REPO:-quarnstroma/ohmyzsh}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
@@ -269,13 +269,19 @@ main() {
 
 	EOF
 	printf "$RESET"
-
 	if [ $RUNZSH = no ]; then
 		echo "${YELLOW}Run zsh to try it out.${RESET}"
 		exit
 	fi
 
 	exec zsh -l
+	printf "$BLUE"
+	printf "Do you want to copy over dot files? y/n"
+	read response
+	if [ "$response" == "y" ]; then
+		rm ~/.*rc
+		ln -s ~/.oh-my-zsh/.*rc	
+	fi
 }
 
 main "$@"
