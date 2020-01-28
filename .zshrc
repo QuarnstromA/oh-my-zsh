@@ -1,5 +1,15 @@
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+POWERLEVEL9K_TRANSIENT_PROMPT=always
 POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(aws aws_assume_role context dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv aws context dir vcs)
+POWERLEVEL9k_RIGHT_PROMPT_ELEMENTS=(virtualenv status root_indicator background_jobs history time)
 ZSH_DISABLE_COMPFIX=true
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa #add more if needed
@@ -30,7 +40,8 @@ prompt_context() {
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -152,3 +163,11 @@ compinit
 bashcompinit
 
 source ~/.bash_completion.d/compleat_setup
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+if [ ! -x $TERMINAL_SOURCE ] && [ "$TERMINAL_SOURCE"=="jetbrains" ]; then
+	[[ ! -f ~/.p10k.jetbrains.rc ]] ||  source ~/.p10k.jetbrains.rc
+else
+	[[ ! -f ~/.p10k.rc ]] || source ~/.p10k.rc
+fi

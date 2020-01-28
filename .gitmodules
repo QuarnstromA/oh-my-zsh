@@ -13,3 +13,6 @@
 [submodule "custom/plugins/ssh-connect"]
 	path = custom/plugins/ssh-connect
 	url = https://github.com/gko/ssh-connect
+[submodule "custom/themes/powerlevel10k"]
+	path = custom/themes/powerlevel10k
+	url = git@github.com:romkatv/powerlevel10k.git

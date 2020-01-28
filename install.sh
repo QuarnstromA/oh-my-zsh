@@ -1,7 +1,4 @@
 #Links new RC files
-rm ~/.bashrc
-rm ~/.zshrc
-rm ~/.ansciweatherc
-rm ~/.warprc
+rm ~/.*rc
 
-ln -s *.rc ~/.
+ln .*rc ~/.

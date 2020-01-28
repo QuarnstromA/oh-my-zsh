@@ -1,0 +1,34 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "`dircolors`"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+#
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+alias ls='ls $LS_OPTIONS'
+alias ll='ls $LS_OPTIONS -l'
+alias l='ls $LS_OPTIONS -lA'
+export GIT_ROOT=~/code
+export BB_WORKSPACE=$GIT_ROOT/atg-main/store
+export SRC_DIR=$BB_WORKSPACE/modules
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_79`
+export ANT_HOME=/opt/ant
+export JBOSS_HOME=/opt/jboss/jboss-as
+export CLASSPATH=/usr/lib/ojdbc6_11.2.0.2.0.jar
+export LOG_DIRECTORY=/var/log/current/atg-apps
+export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
+export ATG_BUILD_USER=anthony.quarnstrom
+alias ant='ant -Duser.name=$ATG_BUILD_USER'
+export PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:/usr/local/scripts

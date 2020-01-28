@@ -1,11 +1,14 @@
 source ~/.workrc
+export LS_OPTIONS=-aGhlp
 export PATH=$PATH:~/.local/bin/:~/bin/
 export AWS_PROFILE=default
 export ANT_HOME=/Users/anthony.quarnstrom/bin/ant
 export PATH=$PATH:$ANT_HOME/bin
+export BAT_THEME="zenburn"
 alias python=/usr/local/bin/python3
 alias pip=pip3
 alias sshh=ssh-connect
+alias cat=bat
 
 env=~/.ssh/agent.env
 #(ansiweather&)
@@ -58,5 +61,7 @@ aws-login()
 {
 	aws-adfs login --adfs-host=sts.bodybuilding.com/adfs/ls/IdpInitiatedSignOn.aspx --authfile=/Users/anthony.quarnstrom/.auth/adfs --profile=default
 	export AWS_PROFILE=default
+
+	aws ecr get-login --region us-west-2 | sed -e 's/-e none//' | source /dev/stdin
 }
 
