@@ -120,6 +120,7 @@ plugins=(
   ansiweather
   taskwarrior
   tmux
+  fast-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh

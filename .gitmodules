@@ -19,3 +19,6 @@
 [submodule "custom/plugins/wenv"]
 	path = custom/plugins/wenv
 	url = git@github.com:dgrisham/wenv.git
+[submodule "custom/plugins/fast-syntax-highlighting"]
+	path = custom/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma/fast-syntax-highlighting.git
