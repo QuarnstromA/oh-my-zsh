@@ -5,7 +5,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=false
 POWERLEVEL9K_TRANSIENT_PROMPT=always
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv aws context dir vcs)
@@ -16,9 +17,6 @@ zstyle :omz:plugins:ssh-agent identities id_rsa #add more if needed
 
 # Import your bashrc or whatever profile:
 [[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
-
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -119,6 +117,8 @@ plugins=(
   colorize
   quoter
   ansiweather
+  taskwarrior
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -163,7 +163,7 @@ compinit
 bashcompinit
 
 source ~/.bash_completion.d/compleat_setup
-
+source ~/bin/wenv
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 if [ ! -x $TERMINAL_SOURCE ] && [ "$TERMINAL_SOURCE"=="jetbrains" ]; then
@@ -171,3 +171,12 @@ if [ ! -x $TERMINAL_SOURCE ] && [ "$TERMINAL_SOURCE"=="jetbrains" ]; then
 else
 	[[ ! -f ~/.p10k.rc ]] || source ~/.p10k.rc
 fi
+
+export wenv_cfg="${XDG_CONFIG_HOME:-$HOME/.config}/wenv"
+
+eval "$WENV_EXEC"
+# enable bash completion functions
+autoload bashcompinit
+bashcompinit
+# source wenv completion file
+source $ZSH/custom/plugins/wenv/completion.bash

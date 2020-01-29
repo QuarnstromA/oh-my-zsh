@@ -1,0 +1,8 @@
+export LS_OPTIONS=-aGhlp
+export PATH=$PATH:~/.local/bin/:$HOME/bin:/usr/local/bin
+export AWS_PROFILE=default
+export ANT_HOME=/Users/anthony.quarnstrom/bin/ant
+export PATH=$PATH:$ANT_HOME/bin
+export BAT_THEME="zenburn"
+export WENV_CFG=$HOME/.config/wenv/
+export WENV_EXEC=$HOME/bin/wenv

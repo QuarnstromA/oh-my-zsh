@@ -16,3 +16,6 @@
 [submodule "custom/themes/powerlevel10k"]
 	path = custom/themes/powerlevel10k
 	url = git@github.com:romkatv/powerlevel10k.git
+[submodule "custom/plugins/wenv"]
+	path = custom/plugins/wenv
+	url = git@github.com:dgrisham/wenv.git

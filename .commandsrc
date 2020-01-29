@@ -1,0 +1,9 @@
+
+aws-login()
+{
+	aws-adfs login --adfs-host=sts.bodybuilding.com/adfs/ls/IdpInitiatedSignOn.aspx --authfile=/Users/anthony.quarnstrom/.auth/adfs --profile=default
+	export AWS_PROFILE=default
+
+	aws ecr get-login --region us-west-2 | sed -e 's/-e none//' | source /dev/stdin
+}
+
