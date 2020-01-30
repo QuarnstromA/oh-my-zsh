@@ -34,7 +34,7 @@ set -e
 # Default settings
 ZSH=${ZSH:-~/.oh-my-zsh}
 REPO=${REPO:-quarnstroma/ohmyzsh}
-REMOTE=${REMOTE:-https://github.com/${REPO}.git}
+REMOTE=${REMOTE:-git@github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
 # Other options
