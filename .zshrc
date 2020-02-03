@@ -1,12 +1,12 @@
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of $HOME/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_AUTOSTART_ONCE=false
+ZSH_TMUX_AUTOSTART=false
+ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=false
 POWERLEVEL9K_TRANSIENT_PROMPT=always
 POWERLEVEL9K_MODE='awesome-fontconfig'
@@ -17,7 +17,7 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa #add more if needed
 
 # Import your bashrc or whatever profile:
-[[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
+[[ -e $HOME/.bashrc ]] && source $HOME'/.bashrc'
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -44,7 +44,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
+# looking in $HOME/.oh-my-zsh/themes/
 # An empty array have no effect
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -89,8 +89,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load? (plugins can be found in $HOME/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
@@ -143,7 +143,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -151,8 +151,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="mate $HOME/.zshrc"
+# alias ohmyzsh="mate $HOME/.oh-my-zsh"
 
 #Install awsp for this command
 #npm install -g awsp 
@@ -164,14 +164,14 @@ autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
 
-source ~/.bash_completion.d/compleat_setup
-source ~/bin/wenv
+source $HOME/.bash_completion.d/compleat_setup
+source $HOME/bin/wenv
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 if [ ! -x $TERMINAL_SOURCE ] && [ "$TERMINAL_SOURCE"=="jetbrains" ]; then
-	[[ ! -f ~/.p10k.jetbrains.rc ]] ||  source ~/.p10k.jetbrains.rc
+	[[ ! -f $HOME/.p10k.jetbrains.rc ]] ||  source $HOME/.p10k.jetbrains.rc
 else
-	[[ ! -f ~/.p10k.rc ]] || source ~/.p10k.rc
+	[[ ! -f $HOME/.p10k.rc ]] || source $HOME/.p10k.rc
 fi
 
 export wenv_cfg="${XDG_CONFIG_HOME:-$HOME/.config}/wenv"

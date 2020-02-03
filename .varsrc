@@ -1,4 +1,5 @@
-export LS_OPTIONS=-aGhlp
+export LS_OPTIONS=-lh
+export LS_ALL_OPTIONS=$LS_OPTIONS"A"
 export PATH=$PATH:~/.local/bin/:$HOME/bin:/usr/local/bin
 export AWS_PROFILE=default
 export ANT_HOME=/Users/anthony.quarnstrom/bin/ant
