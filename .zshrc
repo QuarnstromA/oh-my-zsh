@@ -181,4 +181,4 @@ eval "$WENV_EXEC"
 autoload bashcompinit
 bashcompinit
 # source wenv completion file
-source $ZSH/custom/plugins/wenv/completion.bash
+source $ZSH_CUSTOM/plugins/wenv/completion.bash
