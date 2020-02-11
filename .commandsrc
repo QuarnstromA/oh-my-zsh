@@ -1,3 +1,5 @@
+#!/bin/bash
+
 
 aws-login()
 {
@@ -5,5 +7,32 @@ aws-login()
 	export AWS_PROFILE=default
 
 	aws ecr get-login --region us-west-2 | sed -e 's/-e none//' | source /dev/stdin
+}
+
+colorshelp()
+{
+    echo "Printf format: <command> <format> <strings>"
+    bold "$NL" "bold \"text will be bold\"\n"
+    green "$NL" ""green \"text will be green with no new line\"\n"
+    greenln "$NL" ""greenln \"text will be green with a new line\""
+}
+
+declare -A help_map
+typeset -A help_map
+help_map=(
+    ["create tar-chive"]="tar -czvf name-of-archive.tar.gz /path/to/directory-or-file /any/other/files"
+    ["untar"]="tar -xzvf archive.tar.gz"
+    ["dir size"]="du -ch"
+)
+
+help()
+{
+    yellow "Forget a command?"
+    for help in "${(k)help_map[@]}"; do
+        format "$TABB%-40s"
+        bold $help
+        format "$NL"
+        green $help_map[$help]
+    done
 }
 

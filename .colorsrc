@@ -1,0 +1,223 @@
+#Usage in string: ${BLUE}
+colormap=(RED		GREEN		YELLOW		BLUE		BOLD		RESET		DIM		BLINK
+INVERT		HIDE		MAGENTA		CYAN		LGRAY    	DGRAY    	LRED    	LGREEN
+LYELLOW    	LBLUE    	LMAGENTA    	LCYAN    	WHITE    	BGDEFAULT    	BGBLACK
+BGRED    	BGGREEN    	BGYELLOW    	BGBLUE    	BGMAGENTA    	BGCYAN    	BGLGRAY
+BGDGRAY    	BGLRED    	BGLGREEN    	BGLYELLOW    	BGLBLUE    	BGLMAGENTA    	BGLCYAN
+BGWHITE    )
+
+if [ -t 1 ]; then
+		RED=$(printf $FORMAT '\033[31m')
+		GREEN=$(printf $FORMAT '\033[32m')
+		YELLOW=$(printf $FORMAT '\033[33m')
+		BLUE=$(printf $FORMAT '\033[34m')
+		BOLD=$(printf $FORMAT '\033[1m')
+		RESET=$(printf $FORMAT '\033[m')
+		DIM=$(printf $FORMAT '\033[2m')
+		BLINK=$(printf $FORMAT '\033[5m')
+		INVERT=$(printf $FORMAT '\033[7m')
+		HIDE=$(printf $FORMAT '\033[8m')
+		MAGENTA=$(printf $FORMAT '\033[35m')
+		CYAN=$(printf $FORMAT '\033[36m')
+		LGRAY=$(printf $FORMAT '\033[37m')
+    	DGRAY=$(printf $FORMAT '\033[90m')
+    	LRED=$(printf $FORMAT '\033[91m')
+    	LGREEN=$(printf $FORMAT '\033[92m')
+    	LYELLOW=$(printf $FORMAT '\033[93m')
+    	LBLUE=$(printf $FORMAT '\033[94m')
+    	LMAGENTA=$(printf $FORMAT '\033[95m')
+    	LCYAN=$(printf $FORMAT '\033[96m')
+    	WHITE=$(printf $FORMAT '\033[97m')
+    	BGDEFAULT=$(printf $FORMAT '\033[49m')
+    	BGBLACK=$(printf $FORMAT '\033[40m')
+    	BGRED=$(printf $FORMAT '\033[41m')
+    	BGGREEN=$(printf $FORMAT '\033[42m')
+    	BGYELLOW=$(printf $FORMAT '\033[43m')
+    	BGBLUE=$(printf $FORMAT '\033[44m')
+    	BGMAGENTA=$(printf $FORMAT '\033[45m')
+    	BGCYAN=$(printf $FORMAT '\033[46m')
+    	BGLGRAY=$(printf $FORMAT '\033[47m')
+    	BGDGRAY=$(printf $FORMAT '\033[100m')
+    	BGLRED=$(printf $FORMAT '\033[101m')
+    	BGLGREEN=$(printf $FORMAT '\033[102m')
+    	BGLYELLOW=$(printf $FORMAT '\033[103m')
+    	BGLBLUE=$(printf $FORMAT '\033[104m')
+    	BGLMAGENTA=$(printf $FORMAT '\033[105m')
+    	BGLCYAN=$(printf $FORMAT '\033[106m')
+    	BGWHITE=$(printf $FORMAT '\033[107m')
+	else
+		RED=""
+		GREEN=""
+		YELLOW=""
+		BLUE=""
+		BOLD=""
+		RESET=""
+		DIM=""
+		BLINK=""
+		INVERT=""
+		HIDE=""
+		MAGENTA=""
+		CYAN=""
+		LGRAY=""
+    	DGRAY=""
+    	LRED=""
+    	LGREEN=""
+    	LYELLOW=""
+    	LBLUE=""
+    	LMAGENTA=""
+    	LCYAN=""
+    	WHITE=""
+    	BGDEFAULT=""
+    	BGBLACK=""
+    	BGRED=""
+    	BGGREEN=""
+    	BGYELLOW=""
+    	BGBLUE=""
+    	BGMAGENTA=""
+    	BGCYAN=""
+    	BGLGRAY=""
+    	BGDGRAY=""
+    	BGLRED=""
+    	BGLGREEN=""
+    	BGLYELLOW=""
+    	BGLBLUE=""
+    	BGLMAGENTA=""
+    	BGLCYAN=""
+    	BGWHITE=""
+	fi
+TAB='\t'
+TABB='\t\t'
+TABBB='\t\t\t'
+NL='%s\n'
+
+FORMAT="%s\n"
+
+color_help()
+{
+    echo "How to use terminal colors:"
+    echo "Call its function, which is just it's color name."
+    echo "Set the \$FORMAT variable to change the printf formatting."
+}
+
+format()
+{
+    if [ -z $@ ]
+    then
+        FORMAT="%s\n"
+    else
+        FORMAT="$@"
+    fi
+}
+
+
+dim() {
+	printf $FORMAT ${DIM}"$@"${RESET} >&2
+}
+blink() {
+	printf $FORMAT ${BLINK}"$@"${RESET} >&2
+}
+hide() {
+	printf $FORMAT ${HIDE}"$@"${RESET} >&2
+}
+invert() {
+	printf $FORMAT ${INVERT}"$@"${RESET} >&2
+}
+
+
+bold() {
+	printf $FORMAT ${BOLD}"$@"${RESET} >&2
+}
+
+green() {
+   printf $FORMAT  ${GREEN}"$@"${RESET} >&2
+}
+
+red() {
+   printf $FORMAT  ${RED}"$@"${RESET} >&2
+}
+
+blue() {
+   printf $FORMAT  ${BLUE}"$@"${RESET} >&2
+}
+
+yellow() {
+   printf $FORMAT  ${YELLOW}"$@"${RESET} >&2
+}
+
+magenta() {
+   printf $FORMAT  ${MAGENTA}"$@"${RESET} >&2
+}
+
+cyan() {
+   printf $FORMAT  ${CYAN}"$@"${RESET} >&2
+}
+
+lgray() {
+   printf $FORMAT  ${LGRAY}"$@"${RESET} >&2
+}
+
+dgray() {
+   printf $FORMAT  ${DGRAY}"$@"${RESET} >&2
+}
+
+lred() {
+   printf $FORMAT  ${LRED}"$@"${RESET} >&2
+}
+
+lgreen() {
+   printf $FORMAT  ${LGREEN}"$@"${RESET} >&2
+}
+
+lyellow() {
+   printf $FORMAT  ${LYELLOW}"$@"${RESET} >&2
+}
+
+lblue() {
+   printf $FORMAT  ${LBLUE}"$@"${RESET} >&2
+}
+
+lmagenta() {
+   printf $FORMAT  ${LMAGENTA}"$@"${RESET} >&2
+}
+
+lcyan() {
+   printf $FORMAT  ${LCYAN}"$@"${RESET} >&2
+}
+
+white() {
+   printf $FORMAT  ${WHITE}"$@"${RESET} >&2
+}
+
+clearbg() {
+   printf $FORMAT  ${BGDEFAULT}"$@"${RESET} >&2
+}
+
+blackbg() {
+   printf $FORMAT  ${BGBLACK}"$@"${RESET} >&2
+}
+
+redbg() {
+   printf $FORMAT  ${BGRED}"$@"${RESET} >&2
+}
+
+greenbg() {
+   printf $FORMAT  ${BGGREEN}"$@"${RESET} >&2
+}
+
+yellowbg() {
+   printf $FORMAT  ${BGYELLOW}"$@"${RESET} >&2
+}
+
+bluebg() {
+   printf $FORMAT  ${BGBLUE}"$@"${RESET} >&2
+}
+
+magentabg() {
+   printf $FORMAT  ${BGMAGENTA}"$@"${RESET} >&2
+}
+
+cyanbg() {
+   printf $FORMAT  ${BGCYAN}"$@"${RESET} >&2
+}
+
+##Do others if you want.

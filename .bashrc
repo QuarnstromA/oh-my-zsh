@@ -1,3 +1,4 @@
+source $HOME/.colorsrc
 source $HOME/.varsrc
 source $HOME/.aliasrc
 source $HOME/.commandsrc
