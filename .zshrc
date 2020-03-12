@@ -1,5 +1,9 @@
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 # Enable Powerlevel10k instant prompt. Should stay close to the top of $HOME/.zshrc.
+
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -128,6 +132,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -161,10 +167,6 @@ alias awsp="source _awsp"
 
 alias pip=/usr/local/bin/pip3
 
-autoload -Uz compinit bashcompinit
-compinit
-bashcompinit
-
 source $HOME/.bash_completion.d/compleat_setup
 source $HOME/bin/wenv
 
@@ -178,8 +180,8 @@ fi
 export wenv_cfg="${XDG_CONFIG_HOME:-$HOME/.config}/wenv"
 
 eval "$WENV_EXEC"
-# enable bash completion functions
-autoload bashcompinit
-bashcompinit
 # source wenv completion file
 source $ZSH_CUSTOM/plugins/wenv/completion.bash
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
