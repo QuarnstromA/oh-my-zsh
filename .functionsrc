@@ -1,0 +1,14 @@
+
+#Loads creds into vars. Usage: parse_creds <filename in ~/.auth> user/pass prefix
+parse_creds()
+{
+   if [[ -f $HOME/.auth/$1 ]]; then
+    while IFS=':' read -r user pass
+    do
+        export $2_USER="$user"
+        export $2_PASS="$pass"
+    done < $HOME/.auth/$1
+    else
+       echo "${RED}${BOLD}File \"$1\" not found in $HOME/.auth${RESET}"
+    fi
+}

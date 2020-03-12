@@ -121,6 +121,7 @@ plugins=(
   taskwarrior
   tmux
   fast-syntax-highlighting
+  jira
 )
 
 source $ZSH/oh-my-zsh.sh

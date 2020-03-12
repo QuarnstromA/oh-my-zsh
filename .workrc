@@ -29,3 +29,14 @@ export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 export ATG_BUILD_USER=anthony.quarnstrom
 alias ant='ant -Duser.name=$ATG_BUILD_USER'
 export PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:/usr/local/scripts
+parse_creds artifactory ART
+
+vpn()
+{
+    /opt/cisco/anyconnect/bin/vpn connect https://connect.bodybuilding.com/power -s < ~/.auth/vpn
+}
+
+commerceexceptions()
+{
+awk '{print $12}' atg-commerce.log | grep "Exception" | sort | uniq | xargs -i sh -c 'echo -n "{}"; grep -c "{}" atg-commerce.log'
+}

@@ -1,6 +1,7 @@
 alias python=/usr/local/bin/python3
 alias pip=pip3
 alias cat=bat
+alias realcat=cat
 alias discord=cordless
 alias sed=gsed
 alias ls='colorls $LS_OPTIONS'
