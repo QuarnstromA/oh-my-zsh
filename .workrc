@@ -36,6 +36,11 @@ vpn()
     /opt/cisco/anyconnect/bin/vpn connect https://connect.bodybuilding.com/power -s < ~/.auth/vpn
 }
 
+vpn_stop()
+{
+    /opt/cisco/anyconnect/bin/vpn disconnect
+}
+
 commerceexceptions()
 {
 awk '{print $12}' atg-commerce.log | grep "Exception" | sort | uniq | xargs -i sh -c 'echo -n "{}"; grep -c "{}" atg-commerce.log'

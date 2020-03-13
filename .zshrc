@@ -174,7 +174,18 @@ source $HOME/bin/wenv
 if [ ! -x $TERMINAL_SOURCE ] && [ "$TERMINAL_SOURCE"=="jetbrains" ]; then
 	[[ ! -f $HOME/.p10k.jetbrains.rc ]] ||  source $HOME/.p10k.jetbrains.rc
 else
-	[[ ! -f $HOME/.p10k.rc ]] || source $HOME/.p10k.rc
+    unameOut="$(uname -s)"
+	case "${unameOut}" in
+        Linux*)
+	        [[ ! -f $HOME/.p10k.linux.rc ]] || source $HOME/.p10k.linux.rc
+		;;
+        Darwin*)
+        	[[ ! -f $HOME/.p10k.mac.rc ]] || source $HOME/.p10k.mac.rc
+		;;
+        MINGW*)
+        	[[ ! -f $HOME/.p10k.windows.rc ]] || source $HOME/.p10k.rc
+		;;
+	esac
 fi
 
 export wenv_cfg="${XDG_CONFIG_HOME:-$HOME/.config}/wenv"
