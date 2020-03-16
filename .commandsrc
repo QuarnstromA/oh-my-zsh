@@ -20,9 +20,9 @@ colorshelp()
 declare -A help_map
 typeset -A help_map
 help_map=(
-    ["create tar-chive"]="tar -czvf name-of-archive.tar.gz /path/to/directory-or-file /any/other/files"
-    ["untar"]="tar -xzvf archive.tar.gz"
-    ["dir size"]="du -ch"
+    "create tar-chive" "tar -czvf name-of-archive.tar.gz /path/to/directory-or-file /any/other/files" 
+    "untar" "tar -xzvf archive.tar.gz" 
+    "dir size" "du -ch" 
 )
 
 help()
