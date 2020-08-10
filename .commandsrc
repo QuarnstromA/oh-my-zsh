@@ -17,6 +17,16 @@ colorshelp()
     greenln "$NL" ""greenln \"text will be green with a new line\""
 }
 
+show-cert()
+{
+    echo | openssl s_client -showcerts -servername gnupg.org -connect $1:443 2>/dev/null | openssl x509 -inform pem -noout -text
+}
+
+get-java-dump()
+{
+  ps -ef  | grep java |  cut -d ' '  -f 5,14-
+}
+
 declare -A help_map
 typeset -A help_map
 help_map=(

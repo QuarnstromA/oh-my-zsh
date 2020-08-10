@@ -1,5 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+#export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_70`
 # Note: PS1 and umask are already set in /etc/profile. You should not
 # need this unless you want different defaults for root.
 # PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
@@ -19,7 +20,6 @@
 export GIT_ROOT=~/code
 export BB_WORKSPACE=$GIT_ROOT/atg-main/store
 export SRC_DIR=$BB_WORKSPACE/modules
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_79`
 export ANT_HOME=/opt/ant
 export JBOSS_HOME=/opt/jboss/jboss-as
 export CLASSPATH=/usr/lib/ojdbc6_11.2.0.2.0.jar
@@ -30,6 +30,11 @@ export ATG_BUILD_USER=anthony.quarnstrom
 alias ant='ant -Duser.name=$ATG_BUILD_USER'
 export PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:/usr/local/scripts
 parse_creds artifactory ART
+
+bbapiproxy()
+{
+    ~/bin/bbapi-proxy.jar
+}
 
 vpn()
 {

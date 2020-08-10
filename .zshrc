@@ -103,7 +103,6 @@ plugins=(
   kubectl
   docker
   helm
-  pip
   virtualenv
   ssh-agent
   colored-man-pages
@@ -126,6 +125,7 @@ plugins=(
   tmux
   fast-syntax-highlighting
   jira
+  terraform
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -164,8 +164,6 @@ export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH
 #Install awsp for this command
 #npm install -g awsp 
 alias awsp="source _awsp"
-
-alias pip=/usr/local/bin/pip3
 
 source $HOME/.bash_completion.d/compleat_setup
 source $HOME/bin/wenv

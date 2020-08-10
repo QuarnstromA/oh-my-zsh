@@ -1,6 +1,4 @@
 alias shopt=$HOME/bin/shopt
-alias python=/usr/local/bin/python3
-alias pip=pip3
 alias cat=bat
 alias realcat=/bin/cat
 alias discord=cordless
@@ -9,4 +7,3 @@ alias realls='/bin/ls $LS_OPTIONS'
 alias .realls='/bin/ls $LS_ALL_OPTIONS'
 alias ls='colorls $LS_OPTIONS'
 alias .ls='colorls $LS_ALL_OPTIONS'
-
