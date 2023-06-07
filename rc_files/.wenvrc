@@ -1,0 +1,5 @@
+export WENV_CFG=$HOME/.config/wenv/
+export WENV_EXEC=$HOME/.local/bin/wenv
+# source wenv completion file
+source $HOME/.local/bin/wenv
+source $ZSH_CUSTOM/plugins/wenv/completion.bash

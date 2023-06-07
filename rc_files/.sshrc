@@ -37,9 +37,9 @@ fi
 # to paste the proper path after ssh-add
 if ! agent_is_running; then
     agent_start
-    ssh-add ~/.ssh/bbcom-mac
+    ssh-add ~/.ssh/id_ed25519
 elif ! agent_has_keys; then
-    ssh-add ~/.ssh/bbcom-mac
+    ssh-add ~/.ssh/id_ed25519
 fi
 
 unset env

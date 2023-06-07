@@ -7,8 +7,8 @@ dot_files()
 	if [ "$response" == "y" ]; then
 		rm $HOME/.*rc
 		rm $HOME/.*conf
-		ln -s $HOME/.oh-my-zsh/.*rc $HOME
-		ln -s $HOME/.oh-my-zsh/.*conf $HOME
+		ln -s $HOME/.oh-my-zsh/rc_files/.*rc $HOME
+		ln -s $HOME/.oh-my-zsh/rc_files/.*conf $HOME
 	fi
 }
 
@@ -22,16 +22,15 @@ init()
 
 create_dirs()
 {
-	mkdir $HOME/bin/
-	chmod +x $HOME/bin/wenv
-	mkdir -p $WENV_CFG/wenvs
+	mkdir $HOME/.local/bin
+	chmod +x $HOME/.local/binwenv
 	mkdir $HOME/.task/
 }
 
 copy_files()
 {
-	cp custom/bin/* $HOME/bin/.
-	ln -s $ZSH/custom/plugins/wenv/wenv $HOME/bin/wenv
+	cp custom/bin/* $HOME/.local/bin/.
+	ln -s $ZSH/custom/plugins/wenv/wenv $HOME/.local/bin/wenv
 }
 
 install_compleat()
@@ -53,7 +52,7 @@ install()
 	git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 }
 
-install_host_specific
+install_host_specific()
 {
 	unameOut="$(uname -s)"
 	case "${unameOut}" in

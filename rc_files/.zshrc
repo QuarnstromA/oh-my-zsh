@@ -18,7 +18,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv aws context dir vcs)
 POWERLEVEL9k_RIGHT_PROMPT_ELEMENTS=(virtualenv status root_indicator background_jobs history time)
 ZSH_DISABLE_COMPFIX=true
 zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_rsa #add more if needed
+zstyle :omz:plugins:ssh-agent identities id_ed25519 #add more if needed
 
 # Import your bashrc or whatever profile:
 [[ -e $HOME/.bashrc ]] && source $HOME'/.bashrc'
@@ -30,7 +30,7 @@ case "${unameOut}" in
 	MINGW*)  ZSH="noidea"
 esac
 
-DEFAULT_USER=anthony.quarnstrom
+DEFAULT_USER=quarnstroma
 prompt_context() {
   # Custom (Random emoji)
   emojis=("⚡️" "🔥" "💀" "👑" "😎" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🔑" "🇹🇭" "🚦" "🌙")
@@ -166,7 +166,6 @@ export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH
 alias awsp="source _awsp"
 
 source $HOME/.bash_completion.d/compleat_setup
-source $HOME/bin/wenv
 
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 if [ ! -x $TERMINAL_SOURCE ] && [ "$TERMINAL_SOURCE"=="jetbrains" ]; then
@@ -185,12 +184,10 @@ else
 		;;
 	esac
 fi
+source $HOME/.wenvrc
 
-export wenv_cfg="${XDG_CONFIG_HOME:-$HOME/.config}/wenv"
 
-eval "$WENV_EXEC"
-# source wenv completion file
-source $ZSH_CUSTOM/plugins/wenv/completion.bash
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(rbenv init -)"

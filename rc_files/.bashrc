@@ -7,5 +7,4 @@ source $HOME/.sshrc
 
 #Work only
 source $HOME/.workrc
-source ~/bin/ssoaws/ssoaws
 source $HOME/.pathrc
